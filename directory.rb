@@ -4,7 +4,9 @@ def print_header
   puts "##########################################".center(75)
 end
 def print(students)
-  return students.each_with_index { |s, i| puts "#{i+1}: #{s[:name]}, height: #{s[:height]}cm, weight: #{s[:weight]}kg, skill: #{s[:skill]} (#{s[:cohort]} cohort)".center(75) }
+  return students.each_with_index do |s,i|
+  puts "#{i+1}. #{s[:name]} - Height: #{s[:height]}cm, Weight: #{s[:weight]}kg, Birthplace: #{s[:pob]}, Skill: #{s[:skill]} (#{s[:cohort]} cohort)".center(75)
+  end
 end
 def print_footer(students)
   puts ""
@@ -23,9 +25,13 @@ def input_students
     height = gets.chomp.to_i
     puts "Enter their weight in kg"
     weight = gets.chomp.to_i
+    puts "What's their place of birth?"
+    pob = gets.chomp
     puts "What's their best skill?"
-    skill = gets.chomp
-      students << {name: name, cohort: :july, height: height, weight: weight, skill: skill}
+    skill = gets.chomp.capitalize
+    puts "What cohort are they in?"
+    cohort = gets.chomp.capitalize
+      students << {name: name, cohort: cohort, height: height, weight: weight, pob: pob, skill: skill}
     puts "Please add the next student's name"
       name = gets.chomp.gsub(/\w+/, &:capitalize)
   end
