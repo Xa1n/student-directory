@@ -11,3 +11,6 @@ puts "Joffrey Baratheon"
 puts "Blackbeard"
 puts "Thanos"
 puts "Gary"
+print "Overall, we have "
+print 11
+puts " great students"
