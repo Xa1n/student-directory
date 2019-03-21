@@ -6,13 +6,17 @@ end
 
 def print(students)
   return students.each_with_index do |s,i|
-  puts "#{i+1}. #{s[:name]} - Height: #{s[:height]}cm, Weight: #{s[:weight]}kg, Birthplace: #{s[:pob]}, Skill: #{s[:skill]} (#{s[:cohort]} cohort)".center(75)
+    puts "#{i+1}. #{s[:name]} - Height: #{s[:height]}cm, Weight: #{s[:weight]}kg, Birthplace: #{s[:pob]}, Skill: #{s[:skill]} (#{s[:cohort]} cohort)".center(75)
   end
 end
 
 def print_footer(students)
   puts ""
-  puts "Overall, we have #{students.count} great students".center(75)
+  if students.count < 2
+    puts "Overall, we have #{students.count} great student".center(75)
+  else
+    puts "Overall, we have #{students.count} great students".center(75)
+  end
 end
 
 def input_students
